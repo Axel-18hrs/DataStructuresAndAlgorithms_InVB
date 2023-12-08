@@ -22,7 +22,7 @@
         Dim output(n - 1) As Integer
         Dim count(9) As Integer
 
-        ' Initialize the count array
+        ' Initialize the count_ array
         For i As Integer = 0 To 9
             count(i) = 0
         Next
@@ -32,7 +32,7 @@
             count((arr(i) \ exp) Mod 10) += 1
         Next
 
-        ' Update the count array to contain the actual positions
+        ' Update the count_ array to contain the actual positions
         For i As Integer = 1 To 9
             count(i) += count(i - 1)
         Next
