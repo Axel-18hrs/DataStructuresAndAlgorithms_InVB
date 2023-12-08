@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataStructuresAndAlgorithms_InVB</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Classes\DataStructures\Tree\" />
+    <Folder Include="Classes\DataStructures\Stacks\" />
+    <Folder Include="Classes\DataStructures\Queues\" />
+  </ItemGroup>
+
+</Project>
