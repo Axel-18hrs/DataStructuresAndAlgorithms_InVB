@@ -139,7 +139,9 @@
         Dim stackArray As T() = stack.ToArray()
 
         For Each node As T In stackArray
-            Console.WriteLine($"- Node[{--i}] and data: " & node.ToString())
+            i -= 1
+            Console.WriteLine($"- Node[{i}] and data: " & node.ToString())
+
         Next
     End Sub
 
