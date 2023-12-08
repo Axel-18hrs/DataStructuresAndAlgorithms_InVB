@@ -1,4 +1,4 @@
-﻿Friend Interface ImethodStacks(Of T)
+﻿Public Interface ImethodStacks(Of T)
     Sub Push(element As T)
     Function Pop() As T
     Function Peek() As T

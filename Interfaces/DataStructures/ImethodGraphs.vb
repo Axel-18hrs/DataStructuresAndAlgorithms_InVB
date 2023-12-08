@@ -1,4 +1,4 @@
-﻿Friend Interface ImethodGraphs(Of T)
+﻿Public Interface ImethodGraphs(Of T)
     Sub AddVertex(vertex As T)
     Sub RemoveVertex(vertex As T)
     Sub AddEdge(vertexStart As T, vertexEnd As T)

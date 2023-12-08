@@ -1,4 +1,4 @@
-﻿Friend Class OperationsQueue
+﻿Public Class OperationsQueue
     Public Shared Sub ALQueueOperation(Of T)(queue As ImethodQueues(Of T))
         Dim queueTypeMessage As String = If(TypeOf queue Is RegularQueue(Of T), "Regular", If(TypeOf queue Is DoubleQueue(Of T), "Double", If(TypeOf queue Is PriorityQueue(Of T), "Priority", "Circle")))
         Dim operationCircularQueue As Boolean = TypeOf queue Is CircularQueue(Of T)

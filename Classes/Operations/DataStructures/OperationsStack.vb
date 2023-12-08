@@ -1,4 +1,4 @@
-﻿Friend Class OperationsStack
+﻿Public Class OperationsStack
     Public Shared Sub AllStackOperation(Of T)(stack As ImethodStacks(Of T))
         Dim stackTypeMessage As String = If(TypeOf stack Is DinamicStack(Of T), "Dynamic stack", "Static stack")
 

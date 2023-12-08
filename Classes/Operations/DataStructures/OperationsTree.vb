@@ -1,4 +1,4 @@
-﻿Friend Module OperationsTree
+﻿Public Module OperationsTree
     Public Sub TreeMenu()
         Dim tree As New BinaryTree()
 

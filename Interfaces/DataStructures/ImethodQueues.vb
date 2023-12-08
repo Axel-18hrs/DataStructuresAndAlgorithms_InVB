@@ -1,4 +1,4 @@
-﻿Friend Interface ImethodQueues(Of T)
+﻿Public Interface ImethodQueues(Of T)
     Sub Enqueue(value As T)
     Sub EnqueueRear(value As T)
     Sub Dequeue()
