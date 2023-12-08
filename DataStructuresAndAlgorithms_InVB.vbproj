@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Classes\DataStructures\Tree\" />
     <Folder Include="Classes\DataStructures\Stacks\" />
-    <Folder Include="Classes\DataStructures\Queues\" />
   </ItemGroup>
 
 </Project>

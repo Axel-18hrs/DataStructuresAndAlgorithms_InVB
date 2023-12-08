@@ -7,5 +7,6 @@
     Sub PeekRear()
     Sub Display()
     Function Count() As Integer
+    Function IsEmpty() As Boolean
 End Interface
 
