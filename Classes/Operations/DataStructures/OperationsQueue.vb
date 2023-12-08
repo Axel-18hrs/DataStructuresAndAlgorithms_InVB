@@ -6,11 +6,11 @@
         Do
             Console.Clear()
             Console.WriteLine($"{queueTypeMessage} queue {vbCrLf}" &
-                              "1. Enqueue value {vbCrLf}" &
-                              "2. Dequeue value {vbCrLf}" &
-                              "3. Peek value{vbCrLf}" &
-                              "4. Display {vbCrLf}" &
-                              "0. Exit {vbCrLf}")
+                              $"1. Enqueue value {vbCrLf}" &
+                              $"2. Dequeue value {vbCrLf}" &
+                              $"3. Peek value{vbCrLf}" &
+                              $"4. Display {vbCrLf}" &
+                              $"0. Exit {vbCrLf}")
 
             Dim choice As Integer
             If Not Integer.TryParse(Console.ReadLine(), choice) Then
@@ -120,12 +120,12 @@
     Public Shared Sub MenuQueue()
         Do
             Console.Clear()
-            Console.WriteLine("Types of queues: {vbCrLf}" &
-                              "1. Regular queue {vbCrLf}" &
-                              "2. Doubly queue {vbCrLf}" &
-                              "3. Priority queue {vbCrLf}" &
-                              "4. Circular queue {vbCrLf}" &
-                              "0. Exit {vbCrLf}")
+            Console.WriteLine($"Types of queues: {vbCrLf}" &
+                              $"1. Regular queue {vbCrLf}" &
+                              $"2. Doubly queue {vbCrLf}" &
+                              $"3. Priority queue {vbCrLf}" &
+                              $"4. Circular queue {vbCrLf}" &
+                              $"0. Exit {vbCrLf}")
 
             Dim opt As Integer
             If Not Integer.TryParse(Console.ReadLine(), opt) Then

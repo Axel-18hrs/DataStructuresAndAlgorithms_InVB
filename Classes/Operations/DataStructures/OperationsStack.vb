@@ -5,12 +5,12 @@
         Do
             Console.Clear()
             Console.WriteLine($"{stackTypeMessage} Menu {vbCrLf}" &
-                              "1. Push {vbCrLf}" &
-                              "2. Pop {vbCrLf}" &
-                              "3. Peek {vbCrLf}" &
-                              "4. Count {vbCrLf}" &
-                              "5. Show Stack {vbCrLf}" &
-                              "0. Exit {vbCrLf}")
+                              $"1. Push {vbCrLf}" &
+                              $"2. Pop {vbCrLf}" &
+                              $"3. Peek {vbCrLf}" &
+                              $"4. Count {vbCrLf}" &
+                              $"5. Show Stack {vbCrLf}" &
+                              $"0. Exit {vbCrLf}")
 
             Dim choice
             If Not Integer.TryParse(Console.ReadLine(), choice) Then
@@ -57,10 +57,10 @@
     Public Shared Sub MenuStack()
         Do
             Console.Clear()
-            Console.WriteLine("Types of stacks: {vbCrLf}" &
-                              "1. Static stack {vbCrLf}" &
-                              "2. Dynamic stack {vbCrLf}" &
-                              "0. Exit {vbCrLf}")
+            Console.WriteLine($"Types of stacks: {vbCrLf}" &
+                              $"1. Static stack {vbCrLf}" &
+                              $"2. Dynamic stack {vbCrLf}" &
+                              $"0. Exit {vbCrLf}")
 
             Dim choice As Integer
             If Not Integer.TryParse(Console.ReadLine(), choice) Then

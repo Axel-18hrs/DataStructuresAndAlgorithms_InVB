@@ -3,12 +3,12 @@
         Do
             Console.Clear()
             Console.WriteLine("Select a data struct:")
-            Console.WriteLine("1. Lists {vbCrLf}" &
-                              "2. Stacks {vbCrLf}" &
-                              "3. Queue {vbCrLf}" &
-                              "4. Trees {vbCrLf}" &
-                              "5. Graphs {vbCrLf}" &
-                              "0. Exit {vbCrLf}")
+            Console.WriteLine($"1. Lists {vbCrLf}" &
+                              $"2. Stacks {vbCrLf}" &
+                              $"3. Queue {vbCrLf}" &
+                              $"4. Trees {vbCrLf}" &
+                              $"5. Graphs {vbCrLf}" &
+                              $"0. Exit {vbCrLf}")
 
             Dim opt As Integer
             If Not Integer.TryParse(Console.ReadLine(), opt) Then
@@ -44,9 +44,9 @@
         Do
             Console.Clear()
             Console.WriteLine("Select a data structure or algorithm:")
-            Console.WriteLine("1. Algorithms{vbCrLf}" &
-                              "2. Data Structures{vbCrLf}" &
-                              "0. Exit{vbCrLf}")
+            Console.WriteLine($"1. Algorithms{vbCrLf}" &
+                              $"2. Data Structures{vbCrLf}" &
+                              $"0. Exit{vbCrLf}")
 
             Dim num As Integer
             If Not Integer.TryParse(Console.ReadLine(), num) Then

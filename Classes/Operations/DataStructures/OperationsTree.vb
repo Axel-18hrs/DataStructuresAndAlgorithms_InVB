@@ -5,14 +5,14 @@
         Do
             Console.Clear()
             Console.WriteLine("Binary Tree {vbCrLf}" &
-                              "1. Add node{vbCrLf}" &
-                              "2. Search node{vbCrLf}" &
-                              "3. Delete node{vbCrLf}" &
-                              "4. Display tree{vbCrLf}" &
-                              "5. PreOrder Traversal{vbCrLf}" &
-                              "6. PostOrder Traversal{vbCrLf}" &
-                              "7. InOrder Traversal{vbCrLf}" &
-                              "0. Exit{vbCrLf}")
+                              $"1. Add node{vbCrLf}" &
+                              $"2. Search node{vbCrLf}" &
+                              $"3. Delete node{vbCrLf}" &
+                              $"4. Display tree{vbCrLf}" &
+                              $"5. PreOrder Traversal{vbCrLf}" &
+                              $"6. PostOrder Traversal{vbCrLf}" &
+                              $"7. InOrder Traversal{vbCrLf}" &
+                              $"0. Exit{vbCrLf}")
 
             Dim choice As Integer
             If Not Integer.TryParse(Console.ReadLine(), choice) Then
