@@ -1,7 +1,8 @@
 ﻿Public Class SmoothSort
     Implements ImethodAlgorithms
-
     Private heap As Integer()
+    Private swaps As Integer = 0
+    Private iterations As Integer = 0
 
     Public Sub New()
     End Sub
@@ -17,11 +18,17 @@
         For i As Integer = n - 1 To 1 Step -1
             Swap(0, i)
             SiftDown(0, i - 1)
+
+            ' Imprimir el arreglo en cada iteración
+            PrintArray(heap)
         Next
+
+        Console.WriteLine($"Number of swaps: {swaps}")
+        Console.WriteLine($"Number of iterations: {iterations}")
     End Sub
 
     Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
-        ' Implementation for double arrays (pending)
+        ' Implementación para ordenar un array de doubles
     End Sub
 
     Private Sub SiftDown(root As Integer, [end] As Integer)
@@ -44,6 +51,8 @@
                 Swap(root, swapIndex)
                 root = swapIndex
                 leftChild = 2 * root + 1
+                swaps += 1 ' Incrementa el número de intercambios
+                iterations += 1 ' Incrementa el número de iteraciones
             End If
         End While
     End Sub
@@ -53,4 +62,10 @@
         heap(i) = heap(j)
         heap(j) = temp
     End Sub
+
+    Private Sub PrintArray(arr As Integer())
+        Console.WriteLine($"[ {String.Join(", ", arr)} ]")
+        iterations += 1
+    End Sub
 End Class
+

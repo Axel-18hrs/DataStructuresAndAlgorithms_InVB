@@ -39,45 +39,51 @@ Public Class OperationsAlgorithm
     Public Shared Sub Algorithm(algorithm As ImethodAlgorithms)
         Do
             Console.Clear()
-            Console.WriteLine("Enter the minimum range from which you want to generate your unordered array:")
             Dim minon As Integer
+            Console.WriteLine("Enter the minimum range from which you want to generate your unordered array:")
             If Not Integer.TryParse(Console.ReadLine(), minon) Then
                 OperationsList.Deffault()
                 Continue Do
             End If
 
-            Console.WriteLine(vbLf & "Enter the maximum range or limit where you want to generate your unordered array:")
             Dim length As Integer
+            Console.WriteLine(vbCrLf & "Enter the maximum range or limit where you want to generate your unordered array:")
             If Not Integer.TryParse(Console.ReadLine(), length) Then
                 OperationsList.Deffault()
                 Continue Do
             End If
 
-            Console.WriteLine(vbLf & "Enter the number of values you want in your array:")
             Dim values As Integer
+            Console.WriteLine(vbCrLf & "Enter the number of values you want in your array:")
             If Not Integer.TryParse(Console.ReadLine(), values) Then
                 OperationsList.Deffault()
+                Continue Do
+            End If
+
+            If (TypeOf algorithm Is BucketSort OrElse TypeOf algorithm Is SelectionSort) AndAlso minon < 0 Then
+                Console.WriteLine("Only values greater than or equal to zero are accepted.")
+                Console.ReadKey()
                 Continue Do
             End If
 
             If TypeOf algorithm Is BucketSort Then
                 Dim arr As Double() = GenerarVectorDouble(minon, length, values)
 
-                Console.WriteLine(vbLf & "Unordered array: ")
+                Console.WriteLine(vbCrLf & "Unordered array: ")
                 Console.Write("[ " & String.Join(", ", arr) & " ]")
                 Dim startTime As DateTime = DateTime.Now
                 algorithm.Sort(arr)
-                Console.WriteLine(vbLf & "Sorted array: ")
+                Console.WriteLine(vbCrLf & "Sorted array: ")
                 Console.WriteLine("[ " & String.Join(", ", arr) & " ]")
                 Console.WriteLine("Time: " & (DateTime.Now - startTime).ToString())
             Else
                 Dim arr As Integer() = GenerarVector(minon, length, values)
 
-                Console.WriteLine(vbLf & "Unordered array: ")
-                Console.Write("[ " & String.Join(", ", arr) & " ]")
+                Console.WriteLine(vbCrLf & "Unordered array: ")
+                Console.Write("[ " & String.Join(", ", arr) & " ]" & vbCrLf)
                 Dim startTime As DateTime = DateTime.Now
                 algorithm.Sort(arr)
-                Console.WriteLine(vbLf & "Sorted array: ")
+                Console.WriteLine(vbCrLf & "Sorted array: ")
                 Console.WriteLine("[ " & String.Join(", ", arr) & " ]")
                 Console.WriteLine("Time: " & (DateTime.Now - startTime).ToString())
             End If

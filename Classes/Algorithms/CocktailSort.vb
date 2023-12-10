@@ -1,30 +1,33 @@
 ﻿Friend Class CocktailSort
     Implements ImethodAlgorithms
+    Private swaps As Integer = 0
 
     Public Sub New()
     End Sub
 
     Public Sub Sort(arr As Integer()) Implements ImethodAlgorithms.Sort
-        CocktailSort(arr)
+        CocktailSortAlgorithm(arr)
     End Sub
 
     Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
-        ' Implementation for double arrays (pending)
+        ' Implementación para ordenar un array de doubles
     End Sub
 
-    Public Sub CocktailSort(arr As Integer())
+    Private Sub CocktailSortAlgorithm(arr As Integer())
         Dim n As Integer = arr.Length
         Dim swapped As Boolean = True
         Dim start As Integer = 0
         Dim [end] As Integer = n - 1
 
         While swapped
-            ' Move from left to right
+            ' Mover de izquierda a derecha
             swapped = False
             For i As Integer = start To [end] - 1
                 If arr(i) > arr(i + 1) Then
                     Swap(arr, i, i + 1)
                     swapped = True
+                    Console.WriteLine($"[ {String.Join(", ", arr)} ]")
+                    swaps += 1
                 End If
             Next
 
@@ -34,17 +37,21 @@
 
             [end] -= 1
 
-            ' Move from right to left
+            ' Mover de derecha a izquierda
             swapped = False
             For i As Integer = [end] - 1 To start Step -1
                 If arr(i) > arr(i + 1) Then
                     Swap(arr, i, i + 1)
                     swapped = True
+                    Console.WriteLine($"[ {String.Join(", ", arr)} ]")
+                    swaps += 1
                 End If
             Next
 
             start += 1
         End While
+
+        Console.WriteLine($"Number of swaps: {swaps}")
     End Sub
 
     Private Sub Swap(arr As Integer(), i As Integer, j As Integer)

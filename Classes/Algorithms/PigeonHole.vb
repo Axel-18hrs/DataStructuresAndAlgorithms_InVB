@@ -1,18 +1,22 @@
-﻿Friend Class Pigeonhole
+﻿Public Class Pigeonhole
     Implements ImethodAlgorithms
+    Private swaps As Integer = 0
+    Private iterations As Integer = 0
 
     Public Sub New()
     End Sub
 
     Public Sub Sort(arr As Integer()) Implements ImethodAlgorithms.Sort
         PigeonholeSort(arr)
+        Console.WriteLine($"Number of swaps: {swaps}")
+        Console.WriteLine($"Number of iterations: {iterations}")
     End Sub
 
     Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
-        ' Implementation for double arrays (pending)
+        ' Implementación para ordenar un array de doubles
     End Sub
 
-    Public Sub PigeonholeSort(arr As Integer())
+    Private Sub PigeonholeSort(arr As Integer())
         Dim min As Integer = arr(0)
         Dim max As Integer = arr(0)
         Dim range, i, j, index As Integer
@@ -27,7 +31,7 @@
         Next
 
         range = max - min + 1
-        Dim pigeonholes(range - 1) As Integer
+        Dim pigeonholes As Integer() = New Integer(range - 1) {}
 
         For i = 0 To arr.Length - 1
             pigeonholes(i) = 0
@@ -42,9 +46,13 @@
         For j = 0 To range - 1
             While pigeonholes(j) > 0
                 arr(index) = j + min
-                index += 1
                 pigeonholes(j) -= 1
+                swaps += 1 ' Incrementa el número de intercambios
+                iterations += 1 ' Incrementa el número de iteraciones
+                Console.WriteLine($"[ {String.Join(", ", arr)} ]")
+                index += 1
             End While
         Next
     End Sub
 End Class
+

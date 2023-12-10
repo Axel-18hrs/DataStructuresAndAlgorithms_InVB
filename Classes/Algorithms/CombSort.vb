@@ -1,40 +1,44 @@
 ﻿Friend Class Combsort
     Implements ImethodAlgorithms
-
     Public Sub New()
     End Sub
 
     Public Sub Sort(arr As Integer()) Implements ImethodAlgorithms.Sort
+        CombSortAlgorithm(arr)
+    End Sub
+
+    Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
+        ' Implementación para ordenar un array de doubles
+    End Sub
+
+    Private Sub CombSortAlgorithm(arr As Integer())
         Dim n As Integer = arr.Length
 
-        ' Initialize the gap size
+        ' Inicializar el tamaño del salto
         Dim gap As Integer = n
 
-        ' Reduction factor
+        ' Factor de reducción
         Dim shrink As Double = 1.3
 
         Dim swapped As Boolean
 
         Do
-            ' Apply a minimum gap of 1
+            ' Aplicar un salto mínimo de 1
             If gap > 1 Then
                 gap = CInt(gap / shrink)
             End If
 
             swapped = False
 
-            ' Perform comparisons and swaps
+            ' Realizar comparaciones y swaps
             For i As Integer = 0 To n - gap - 1
                 If arr(i) > arr(i + gap) Then
                     Swap(arr(i), arr(i + gap))
                     swapped = True
+                    Console.WriteLine($"[ {String.Join(", ", arr)} ]")
                 End If
             Next
         Loop While gap > 1 OrElse swapped
-    End Sub
-
-    Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
-        ' Implementation for double arrays (pending)
     End Sub
 
     Private Sub Swap(ByRef a As Integer, ByRef b As Integer)

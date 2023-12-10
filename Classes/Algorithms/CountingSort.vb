@@ -1,5 +1,6 @@
-﻿Friend Class CountingSort
+﻿Public Class Countingsort
     Implements ImethodAlgorithms
+    Private Shared iterations As Integer = 0
 
     Public Sub New()
     End Sub
@@ -7,42 +8,48 @@
     Public Sub Sort(arr As Integer()) Implements ImethodAlgorithms.Sort
         Dim n As Integer = arr.Length
 
-        ' Find the range of the array
+        ' Encontrar el rango del arreglo
         Dim max As Integer = FindMax(arr)
 
-        ' Create a counting array and an output array
+        ' Crear un arreglo de conteo y un arreglo resultado
         Dim count(max) As Integer
         Dim output(n - 1) As Integer
 
-        ' Initialize the counting array
+        ' Inicializar el arreglo de conteo
         For i As Integer = 0 To max
             count(i) = 0
         Next
 
-        ' Count the frequency of each element
+        ' Contar la frecuencia de cada elemento
         For i As Integer = 0 To n - 1
             count(arr(i)) += 1
         Next
 
-        ' Update the counting array to contain the actual positions
+        ' Actualizar el arreglo de conteo para contener las posiciones reales
         For i As Integer = 1 To max
             count(i) += count(i - 1)
         Next
 
-        ' Build the output array
+        ' Construir el arreglo de salida
         For i As Integer = n - 1 To 0 Step -1
             output(count(arr(i)) - 1) = arr(i)
             count(arr(i)) -= 1
+
+            ' Imprimir el arreglo completo en cada intercambio
+            Console.WriteLine($"[ {String.Join(", ", output)} ]")
+            iterations += 1 ' Incrementa el número de iteraciones
         Next
 
-        ' Copy the output array back to the original array
+        ' Copiar el arreglo de salida de vuelta al arreglo original
         For i As Integer = 0 To n - 1
             arr(i) = output(i)
         Next
+
+        Console.WriteLine($"Number of iterations: {iterations}")
     End Sub
 
     Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
-        ' Implementation for double arrays (pending)
+        ' Implementación para ordenar un array de doubles
     End Sub
 
     Private Function FindMax(arr As Integer()) As Integer

@@ -1,5 +1,6 @@
-﻿Friend Class RadixSort
+﻿Public Class Radixsort
     Implements ImethodAlgorithms
+    Private iterations As Integer = 0
 
     Public Sub New()
     End Sub
@@ -7,46 +8,55 @@
     Public Sub Sort(arr As Integer()) Implements ImethodAlgorithms.Sort
         Dim max As Integer = FindMax(arr)
 
-        ' Apply Radix Sort for each digit position
-        For exp As Integer = 1 To CInt(Math.Floor(CDbl(max / exp)))
+        ' Aplicar Radix Sort para cada posición del dígito
+        For exp As Integer = 1 To max \ 10
             CountingSort(arr, exp)
         Next
+
+        Console.WriteLine($"Number of iterations: {iterations}")
     End Sub
 
     Public Sub Sort(arr As Double()) Implements ImethodAlgorithms.Sort
-        ' Implementation for double arrays (pending)
+        ' Implementación para ordenar un array de doubles
     End Sub
 
     Private Sub CountingSort(arr As Integer(), exp As Integer)
         Dim n As Integer = arr.Length
-        Dim output(n - 1) As Integer
-        Dim count(9) As Integer
+        Dim output As Integer() = New Integer(n - 1) {}
+        Dim count As Integer() = New Integer(9) {}
 
-        ' Initialize the count_ array
+        ' Inicializar el arreglo de conteo
         For i As Integer = 0 To 9
             count(i) = 0
         Next
 
-        ' Count the frequency of each element at the current digit position
+        ' Contar la frecuencia de cada elemento en la posición actual del dígito
         For i As Integer = 0 To n - 1
             count((arr(i) \ exp) Mod 10) += 1
         Next
 
-        ' Update the count_ array to contain the actual positions
+        ' Actualizar el arreglo de conteo para contener las posiciones reales
         For i As Integer = 1 To 9
             count(i) += count(i - 1)
         Next
 
-        ' Build the output array
+        ' Construir el arreglo de salida
         For i As Integer = n - 1 To 0 Step -1
             output(count((arr(i) \ exp) Mod 10) - 1) = arr(i)
             count((arr(i) \ exp) Mod 10) -= 1
         Next
 
-        ' Copy the output array back to the original array
+        ' Copiar el arreglo de salida de vuelta al arreglo original
         For i As Integer = 0 To n - 1
             arr(i) = output(i)
         Next
+
+        PrintArray(arr)
+    End Sub
+
+    Private Sub PrintArray(arr As Integer())
+        Console.WriteLine($"[ {String.Join(", ", arr)} ]")
+        iterations += 1
     End Sub
 
     Private Function FindMax(arr As Integer()) As Integer
@@ -59,3 +69,4 @@
         Return max
     End Function
 End Class
+
